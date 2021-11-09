@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Useless Box</title>
+    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.10.1.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- "Curtain" to show a loading screen when needed -->
+    <div id="curtain">
+        <div id="loader"></div>
+        <p   id="loader_message">Loading the Sketchfab model...</p>
+    </div>
+    
+    <!-- Sketchfab iframe -->
+    <iframe 
+        id="api-frame"
+        title="Keyboard" 
+        frameborder="0" 
+        allowfullscreen 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true" 
+        allow="fullscreen; autoplay; vr" 
+        xr-spatial-tracking 
+        execution-while-out-of-viewport 
+        execution-while-not-rendered 
+        web-share 
+        src=""
+        ></iframe>
+    
+    <!-- Sketchfab script -->
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
