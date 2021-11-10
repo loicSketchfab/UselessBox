@@ -46,7 +46,7 @@ var viewerOptions = {
     autostart:         1,
     camera:            0,
     ui_stop:           0,
-    transparent:       1,
+    transparent:       0,
     ui_controls:       0,
     ui_hint:           0,
     ui_infos:          0,
