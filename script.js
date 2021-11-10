@@ -95,6 +95,8 @@ function onError() {
 Parse the node tree
 */
 
+namesToID = {}
+
 function onNodeMap(err, nodes){
 
     function parseNodeTree(){
@@ -144,6 +146,20 @@ function onNodeMap(err, nodes){
                 n.onEnterCallback = function(_n){ translate(_n, [0, +0.025, 0], 0.1); }
                 n.onLeaveCallback = function(_n){ translate(_n, [0, 0, 0], 0.2); }
                 n.onClickCallback = function(_n){ toggleSwitch(_n); };
+            }
+            if(n.name.startsWith("button_body")){
+                console.log(n.name.slice(-4));
+                n.proxy = "button_knob" + n.name.slice(-4)
+                n.onEnterCallback = function(_n){ translate(_n, [0, +0.025, 0], 0.1); }
+                n.onLeaveCallback = function(_n){ translate(_n, [0, 0, 0], 0.2); }
+                n.onClickCallback = function(_n){ toggleSwitch(_n); };
+                
+                for(var NODE in NODES){
+                    if(NODES[NODE].name == n.proxy){
+                        namesToID[n.proxy] = NODE;
+                    }
+                }
+                
             }
         }
     }
@@ -236,7 +252,7 @@ function SketchfabCallback(id, callbackName){
         var n = NODES[id];
         if(n){
             if(n.proxy){
-                n = NODES[namesToId[n.proxy]];
+                n = NODES[namesToID[n.proxy]];
             }
             if(n[callbackName]){
                 n[callbackName](n);
