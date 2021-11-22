@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saturation Potentiometer</title>
+    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.10.1.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="background-image">
+
+    <!-- "Curtain" to show a loading screen when needed -->
+    <div id="curtain">
+        <div id="loader"></div>
+        <p   id="loader_message">Loading the Sketchfab model...</p>
+    </div>
+    
+
+    <!-- Insert an empty iframe -->
+    <iframe 
+        id="api-frame"
+        title="Keyboard" 
+        frameborder="0" 
+        allowfullscreen 
+        mozallowfullscreen="true" 
+        webkitallowfullscreen="true" 
+        allow="fullscreen; autoplay; vr" 
+        xr-spatial-tracking 
+        execution-while-out-of-viewport 
+        execution-while-not-rendered 
+        web-share 
+        src=""
+        ></iframe> 
+    
+    <!-- Image to allow blur effect and submesh focus -->
+    <img id="background-image" class="not-blurred background-image">
+    <img id="image" class="blurred">
+    
+    <!-- Overlay to show controls and info -->
+    <div id="overlay" class="transparent"></div>
+
+    <!-- Initialize the viewer -->
+    <script type="text/javascript" src="sketchfabApp.js"></script>
+    <script type="text/javascript" src="potentiometerApp.js"></script>
+</body>
+</html>
