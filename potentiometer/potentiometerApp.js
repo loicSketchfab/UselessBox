@@ -163,6 +163,7 @@ var potentiometerSketchfabApp = function(){
     
             function overlayClickListener(event){
                 overlay.removeEventListener("mousemove", mouseMoveListener);
+                overlay.removeEventListener("touchmove", mouseMoveListener);
                 overlay.classList.add('transparent');
                 tmp.initialClick = [0,0]
                 if( tmp.currentGroupID in potentiometerValues ){
@@ -183,6 +184,7 @@ var potentiometerSketchfabApp = function(){
 
             overlay.classList.remove('transparent');
             overlay.addEventListener("mousemove", mouseMoveListener);
+            overlay.addEventListener("touchmove", mouseMoveListener);
             overlay.addEventListener("click",     overlayClickListener, {once: true});
 
             if(n.name in potentiometerFunctions)
